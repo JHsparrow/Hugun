@@ -13,12 +13,16 @@ public class Equip {
 
 	public Equip() {
 		Scanner scanner = new Scanner(System.in);
-		String EqYN;
+		String EqYN; //장착 선택 Y : 선택 / N: 취소
+		String SelectWeapon = null; //어떤 무기를 선택 했는지 파악
+		boolean ReSelect = false ; // 선택 취소 후 처리
 		while(EquipRun) {
-			System.out.println("---------------");
-			System.out.println("무기를 선택하시오.");
-			System.out.println("1.건총 | 2.라이플 | 3.샷건 | 4.종료");
-			String SelectWeapon = scanner.nextLine();
+			if(ReSelect == false) {
+				System.out.println("---------------");
+				System.out.println("무기를 선택하시오.");
+				System.out.println("1.건총 | 2.라이플 | 3.샷건 | 4.종료");
+				SelectWeapon = scanner.nextLine();
+			}
 			if(SelectWeapon.equals("1")) {
 				new Pistol();
 				EqYN = scanner.nextLine();
@@ -28,7 +32,21 @@ public class Equip {
 					System.out.println("------------------");
 					EquipStatus = "Pistol";
 					EquipRun = false;
+					ReSelect = false;
 				} 
+				else if (EqYN.equals("N")||EqYN.equals("n")) {
+					System.out.println("------------------");
+					System.out.println("장착을 취소 하였습니다.");	
+					System.out.println("------------------");
+					ReSelect = false;
+				}
+				else {
+					System.out.println("------------------");
+					System.out.println("정확한 입력 부탁드립니다..");	
+					System.out.println("------------------");
+					ReSelect = true;
+					SelectWeapon = "1";
+				}
 			}
 			else if(SelectWeapon.equals("2")) {
 				new Rifle();
@@ -39,7 +57,21 @@ public class Equip {
 					System.out.println("------------------");
 					EquipStatus = "Rifle";
 					EquipRun = false;
-				}				
+					ReSelect = false;
+				}	
+				else if (EqYN.equals("N")||EqYN.equals("n")) {
+					System.out.println("------------------");
+					System.out.println("장착을 취소 하였습니다.");	
+					System.out.println("------------------");
+					ReSelect = false;
+				}
+				else {
+					System.out.println("------------------");
+					System.out.println("정확한 입력 부탁드립니다..");	
+					System.out.println("------------------");
+					ReSelect = true;
+					SelectWeapon = "2";
+				}
 			}
 			else if(SelectWeapon.equals("3")) {
 				new Shotgun();
@@ -50,13 +82,31 @@ public class Equip {
 					System.out.println("------------------");
 					EquipStatus = "Shotgun";
 					EquipRun = false;
-				}				
+					ReSelect = false;
+				}	
+				else if (EqYN.equals("N")||EqYN.equals("n")) {
+					System.out.println("------------------");
+					System.out.println("장착을 취소 하였습니다.");	
+					System.out.println("------------------");
+					ReSelect = false;
+				}
+				else {
+					System.out.println("------------------");
+					System.out.println("정확한 입력 부탁드립니다..");	
+					System.out.println("------------------");
+					ReSelect = true;
+					SelectWeapon = "3";
+				}
+			}
+			else if(SelectWeapon.equals("4")) {
+				System.out.println("------------------");
+				System.out.println("무기 선택을 종료합니다.");
+				System.out.println("------------------");
+				EquipRun = false;
 			}
 			else {
 				System.out.println("------------------");
-				System.out.println("기존무기를 유지합니다.");
-				System.out.println("------------------");
-				EquipRun = false;
+				System.out.println("정확한 입력 부탁드립니다..");	
 			}
 		}
 	}

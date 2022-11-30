@@ -8,6 +8,7 @@ public class Pistol extends Gun {
 		Equip.CunsumeAmmo = 1;
 		Equip.Accuracy = 1;
 		
+		System.out.println("/̵͇̿̿/'̿̿ ̿̿ ̿̿");
 		System.out.println("피스톨");
 		System.out.println("공격력 : "+Equip.AttackDamage);
 		System.out.println("정확도 : "+(int)(Equip.Accuracy*100)+"%");

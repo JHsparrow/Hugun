@@ -2,8 +2,8 @@
  * 
  */
 /**
- * @author hspar
+ * @author ezen
  *
  */
-module Hogun2 {
+module Hogun {
 }

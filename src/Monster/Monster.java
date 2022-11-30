@@ -17,11 +17,12 @@ public class Monster {
 		if(getAccuracy < (int)(Equip.Accuracy*100)) {
 			int CharDamage = (int)(Equip.AttackDamage) + char01.AttactDamage;		
 			this.Hp = this.Hp - CharDamage;
-			System.out.println("명중하였다");
+			System.out.println("명중하였다");			
 		} 
 		else {
 			System.out.println("으악 Miss!!!");
 		}
+		Equip.Ammo --;
 		System.out.println("--------------------");
 	}
 	
